@@ -7,8 +7,10 @@
     (mouseenter)="liTag.classList.add('focused')"
     (mouseout)="liTag.classList.remove('focused')"
     [class.done]="todo.done"
-    *ngFor="let todo of todos"
+    *ngFor="let todo of todos$ |async"
     class="list-group-item">
       {{ todo.text }}
   </li>
 </ul>
+
+<!-- Avant le |async => *ngFor="let todo of todos" -->
