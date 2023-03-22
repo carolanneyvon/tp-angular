@@ -1,0 +1,14 @@
+<h1 class="my-3 text-center">Liste des tâches</h1>
+
+<ul class="list-group">
+  <li
+    #liTag
+    (click)="todo.done = !todo.done"
+    (mouseenter)="liTag.classList.add('focused')"
+    (mouseout)="liTag.classList.remove('focused')"
+    [class.done]="todo.done"
+    *ngFor="let todo of todos"
+    class="list-group-item">
+      {{ todo.text }}
+  </li>
+</ul>
