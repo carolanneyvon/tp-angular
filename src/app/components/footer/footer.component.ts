@@ -16,9 +16,25 @@ import { TodoService } from 'src/app/shared/services/todo.service';
   ]
 })
 // pop supprime le dernier élément d'un tableau
+// export class FooterComponent {
+//   todos: Todo[] = this._todoService.todos;
+//   constructor(private _todoService: TodoService) {
+//     this.todos.pop();
+//   }
+// }
+
 export class FooterComponent {
-  todos: Todo[] = this._todoService.todos;
+  todos: Todo[] = [];
+
   constructor(private _todoService: TodoService) {
-    this.todos.pop();
+    const sub = this._todoService.todos$.subscribe(
+      todosReceived => {
+        this.todos = todosReceived;
+      }
+    );
+
+    setTimeout(() => {
+      sub.unsubscribe();
+    }, 20000);
   }
 }

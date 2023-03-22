@@ -16,6 +16,17 @@ import { TodoService } from 'src/app/shared/services/todo.service';
 //   ];
 // }
 export class TodosComponent {
-  todos: Todo[] = this._todoService.todos;
-  constructor(private _todoService: TodoService) {}
+  todos: Todo[] = [];
+  
+  constructor(private _todoService: TodoService) {
+    const sub = this._todoService.todos$.subscribe(
+      todosReceived => {
+        this.todos = todosReceived;
+      }
+    );
+
+    setTimeout(() => {
+      sub.unsubscribe();
+    }, 20000);
+  }
 }
