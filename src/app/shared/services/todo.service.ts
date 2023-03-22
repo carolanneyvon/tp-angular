@@ -13,5 +13,9 @@ export class TodoService {
     new Todo('Travailler les cours'),
   ];
 
-  constructor() { }
+  constructor() {
+    setTimeout(() => {
+      this.todos.push(new Todo("Démarrer le programme"));
+    }, 2000);
+  }
 }
