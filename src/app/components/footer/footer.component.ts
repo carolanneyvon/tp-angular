@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Todo } from 'src/app/shared/models/todo';
 import { TodoService } from 'src/app/shared/services/todo.service';
 
@@ -15,26 +16,41 @@ import { TodoService } from 'src/app/shared/services/todo.service';
     'footer { text-align:center; font-size: 0.7rem }',
   ]
 })
-// pop supprime le dernier élément d'un tableau
+
+//Avant le ngOnInit et le ngOnDestroy
 // export class FooterComponent {
-//   todos: Todo[] = this._todoService.todos;
+//   todos: Todo[] = [];
+
 //   constructor(private _todoService: TodoService) {
-//     this.todos.pop();
+//     const sub = this._todoService.todos$.subscribe(
+//       todosReceived => {
+//         this.todos = todosReceived;
+//       }
+//     );
+
+//     setTimeout(() => {
+//       sub.unsubscribe();
+//     }, 20000);
 //   }
 // }
 
-export class FooterComponent {
+export class FooterComponent implements OnInit, OnDestroy {
   todos: Todo[] = [];
+  
+  //Abonnement
+  private _subscription!: Subscription;
 
-  constructor(private _todoService: TodoService) {
-    const sub = this._todoService.todos$.subscribe(
-      todosReceived => {
-        this.todos = todosReceived;
-      }
+  constructor(private _todoService: TodoService) {}
+
+  //On récupere l'abonnement
+  ngOnInit() {
+    this._subscription = this._todoService.todos$.subscribe(
+      todosReceived => this.todos = todosReceived
     );
+  }
 
-    setTimeout(() => {
-      sub.unsubscribe();
-    }, 20000);
+  //On détruit l'abonnement
+  ngOnDestroy() {
+    this._subscription.unsubscribe();
   }
 }
