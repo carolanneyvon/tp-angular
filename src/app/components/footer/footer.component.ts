@@ -15,7 +15,10 @@ import { TodoService } from 'src/app/shared/services/todo.service';
     'footer { text-align:center; font-size: 0.7rem }',
   ]
 })
+// pop supprime le dernier élément d'un tableau
 export class FooterComponent {
   todos: Todo[] = this._todoService.todos;
-  constructor(private _todoService: TodoService) {}
+  constructor(private _todoService: TodoService) {
+    this.todos.pop();
+  }
 }
