@@ -1,20 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { TodosComponent } from './components/todos/todos.component';
-import { TodoDetailsComponent } from './components/todos/todo-details/todo-details.component';
-import { TodoFormComponent } from './components/todos/todo-form/todo-form.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { OneComponent } from './components/one/one.component';
+import { TwoComponent } from './components/two/two.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    TodosComponent,
-    TodoDetailsComponent,
-    TodoFormComponent,
-    FooterComponent,
+    OneComponent,
+    TwoComponent,
   ],
   imports: [ BrowserModule ],
   bootstrap: [ AppComponent ]
