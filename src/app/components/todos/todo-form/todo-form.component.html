@@ -1,4 +1,4 @@
-<form #formAddTodo="ngForm" (ngSumbit)="onSubmit(formAddTodo)">
+<form #formAddTodo="ngForm" (ngSubmit)="onSubmit(formAddTodo)">
   <p>
     <label for="todo">Tâche:</label>
     <input required id="todo" type="text" name="text" ngModel>
