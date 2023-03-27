@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-one',
@@ -6,22 +6,5 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./one.component.css']
 })
 export class OneComponent {
-  @Input() data = '';
+  @Output() emitter = new EventEmitter();
 }
-
-
-//@Output
-// export class OneComponent {
-//   @Output() emitter = new EventEmitter();
-//   constructor(){
-//     setTimeout(() => {
-//       this.emitter.emit();
-//     }, 3000);
-//   }
-// }
-
-//Final
-// export class OneComponent {
-//   @Output() 
-//   public emitter = new EventEmitter();
-//}
