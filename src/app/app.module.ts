@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+//import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routiing.module';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
+
+//Mettre les infos dans app-routing.module.ts
+// const routes: Routes = [
+//   { path: 'home', component: HomeComponent },
+//        { path: 'presentation', component: PresentationComponent },
+//        { path: 'contact', component: ContactComponent },
+//        { path: '', redirectTo: 'home', pathMatch: 'full' }, //redirection
+//        { path: '**', redirectTo: 'home' }, //route qui n'existe pas pour éviter une erreur
+// ]
 
 @NgModule({
   declarations: [
@@ -14,14 +24,9 @@ import { PresentationComponent } from './components/presentation/presentation.co
     PresentationComponent,
   ],
   imports: [
-    BrowserModule,
-    RouterModule.forRoot([
-       { path: 'home', component: HomeComponent },
-       { path: 'presentation', component: PresentationComponent },
-       { path: 'contact', component: ContactComponent },
-       { path: '', redirectTo: 'home', pathMatch: 'full' }, //redirection
-       { path: '**', redirectTo: 'home' }, //route qui n'existe pas pour éviter une erreur
-    ]),
+  BrowserModule,
+  //RouterModule.forRoot(routes),
+  AppRoutingModule
   ],
   bootstrap: [ AppComponent ]
 })
