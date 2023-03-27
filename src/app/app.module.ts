@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 //import { RouterModule, Routes } from '@angular/router';
-import { AppRoutingModule } from './app-routiing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { HomeComponent } from './components/home/home.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
+import { HistoryComponent } from './components/history/history.component';
+import { TeamComponent } from './components/team/team.component';
 
 //Mettre les infos dans app-routing.module.ts
 // const routes: Routes = [
@@ -22,11 +24,13 @@ import { PresentationComponent } from './components/presentation/presentation.co
     ContactComponent,
     HomeComponent,
     PresentationComponent,
+    HistoryComponent,
+    TeamComponent,
   ],
   imports: [
-  BrowserModule,
-  //RouterModule.forRoot(routes),
-  AppRoutingModule
+    BrowserModule,
+    //RouterModule.forRoot(routes),
+    AppRoutingModule
   ],
   bootstrap: [ AppComponent ]
 })
