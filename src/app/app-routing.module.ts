@@ -1,22 +1,20 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { PresentationComponent } from './components/presentation/presentation.component';
-import { HistoryComponent } from './components/history/history.component';
-import { TeamComponent } from './components/team/team.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { NgModule } from '@angular/core';
+import { PartnersComponent } from './components/partners/partners.component';
+import { FrancepartnersComponent } from './components/francepartners/francepartners.component';
+import { SpainpartnersComponent } from './components/spainpartners/spainpartners.component';
+import { GermanypartnersComponent } from './components/germanypartners/germanypartners.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'presentation', 
-    //component: PresentationComponent,
+  { path: 'partners', 
+    component: PartnersComponent,
+    pathMatch: 'prefix',
     children: [
-      {path: 'team', component: TeamComponent},
-      {path: 'history', component: HistoryComponent},
+      {path: 'france', component: FrancepartnersComponent},
+      {path: 'espagne', component: SpainpartnersComponent},
+      {path: 'allemagne', component: GermanypartnersComponent},
 ]  },
-  { path: 'contact', component: ContactComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' }, //redirection
-  { path: '**', redirectTo: 'home' }, //route qui n'existe pas pour éviter une erreur
+  { path: '**', redirectTo: 'partners' }, //route qui n'existe pas pour éviter une erreur
 ];
 
 @NgModule({

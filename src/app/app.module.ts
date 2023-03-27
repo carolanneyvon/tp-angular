@@ -1,35 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { HomeComponent } from './components/home/home.component';
-import { PresentationComponent } from './components/presentation/presentation.component';
-import { HistoryComponent } from './components/history/history.component';
-import { TeamComponent } from './components/team/team.component';
+import { PartnersComponent } from './components/partners/partners.component';
+import { FrancepartnersComponent } from './components/francepartners/francepartners.component';
+import { SpainpartnersComponent } from './components/spainpartners/spainpartners.component';
+import { GermanypartnersComponent } from './components/germanypartners/germanypartners.component';
 
-//Mettre les infos dans app-routing.module.ts
-// const routes: Routes = [
-//   { path: 'home', component: HomeComponent },
-//        { path: 'presentation', component: PresentationComponent },
-//        { path: 'contact', component: ContactComponent },
-//        { path: '', redirectTo: 'home', pathMatch: 'full' }, //redirection
-//        { path: '**', redirectTo: 'home' }, //route qui n'existe pas pour éviter une erreur
-// ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContactComponent,
-    HomeComponent,
-    PresentationComponent,
-    HistoryComponent,
-    TeamComponent,
+    PartnersComponent,
+    FrancepartnersComponent,
+    SpainpartnersComponent,
+    GermanypartnersComponent,
   ],
   imports: [
     BrowserModule,
-    //RouterModule.forRoot(routes),
     AppRoutingModule
   ],
   bootstrap: [ AppComponent ]
