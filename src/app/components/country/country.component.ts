@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Country } from './../../shared/models/country';
+import { Address, User } from './../../shared/models/user';
 
 @Component({
   selector: 'app-country',
@@ -13,6 +14,13 @@ export class CountryComponent {
     new Country('dfc5de44-ed89-458b-825a-2a313e28bc9a', 'France'),
     new Country('b0be11c0-bdd0-4621-ae30-5645b77e480a', 'Espagne'),
   ];
+
+  public contact = new User();
+  public address = new Address();
+
+  constructor() {
+    this.contact.address = this.address;
+  }
 
   onSubmit(form: NgForm) {
     console.log(form)
