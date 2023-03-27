@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-//import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -8,15 +7,9 @@ import { HomeComponent } from './components/home/home.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { HistoryComponent } from './components/history/history.component';
 import { TeamComponent } from './components/team/team.component';
-
-//Mettre les infos dans app-routing.module.ts
-// const routes: Routes = [
-//   { path: 'home', component: HomeComponent },
-//        { path: 'presentation', component: PresentationComponent },
-//        { path: 'contact', component: ContactComponent },
-//        { path: '', redirectTo: 'home', pathMatch: 'full' }, //redirection
-//        { path: '**', redirectTo: 'home' }, //route qui n'existe pas pour éviter une erreur
-// ]
+import { UserComponent } from './components/user/user.component';
+import { CountryComponent } from './components/country/country.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,11 +19,13 @@ import { TeamComponent } from './components/team/team.component';
     PresentationComponent,
     HistoryComponent,
     TeamComponent,
+    UserComponent,
+    CountryComponent,
   ],
   imports: [
     BrowserModule,
-    //RouterModule.forRoot(routes),
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   bootstrap: [ AppComponent ]
 })

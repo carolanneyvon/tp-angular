@@ -1,0 +1,50 @@
+<h1>Formulaire de contact</h1>
+
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+  <p>
+    <label>Nom:
+      <input required type="text" name="lastname" ngModel>
+    </label>
+  </p>
+  <p>
+    <label>Prénom:
+      <input required type="text" name="firstname" ngModel>
+    </label>
+  </p>
+  <p>
+    <label>Email:
+      <input type="email" name="email" ngModel>
+    </label>
+  </p>
+  <p>
+    <label>Gender:
+      Femme <input type="radio" name="gender" value="female" ngModel>
+      Homme <input type="radio" name="gender" value="male" ngModel>
+    </label>
+  </p>
+  <p>
+    <label>Êtes-vous marié ?
+      <input type="checkbox" name="isMarried" ngModel>
+    </label>
+  </p>
+  <p>
+    <label>Pays:
+      <select name="country" ngModel>
+        <option value="" selected></option>  
+        <option *ngFor="let c of countries" [ngValue]="c.id">
+          {{ c.name }}
+        </option>  
+      </select>
+    </label>
+  </p>
+  <p>
+    <button [disabled]="!contactForm.valid" type="submit">Envoyer</button>
+  </p>
+</form>
+
+<pre>Value: {{ contactForm.value |json}}</pre>
+<p>
+  Valid: {{ contactForm.valid }} -
+  Touched: {{ contactForm.touched }} -
+  Submitted: {{ contactForm.submitted }}
+</p>
