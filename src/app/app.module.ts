@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { OneComponent } from './components/one/one.component';
-import { TwoComponent } from './components/two/two.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { HomeComponent } from './components/home/home.component';
+import { PresentationComponent } from './components/presentation/presentation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OneComponent,
-    TwoComponent,
+    ContactComponent,
+    HomeComponent,
+    PresentationComponent,
   ],
-  imports: [ BrowserModule ],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot([
+       { path: 'home', component: HomeComponent },
+       { path: 'presentation', component: PresentationComponent },
+       { path: 'contact', component: ContactComponent },
+       { path: '', redirectTo: 'home', pathMatch: 'full' }, //redirection
+       { path: '**', redirectTo: 'home' }, //route qui n'existe pas pour éviter une erreur
+    ]),
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}
