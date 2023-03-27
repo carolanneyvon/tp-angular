@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "text": "Faire la lessive",
+      "done": false,
+      "id": 1
+    },
+    {
+      "text": "Vider le lave vaiselle",
+      "done": false,
+      "id": 2
+    }
+  ]
+}
