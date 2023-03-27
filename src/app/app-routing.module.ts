@@ -7,13 +7,14 @@ import { GermanypartnersComponent } from './components/germanypartners/germanypa
 
 const routes: Routes = [
   { path: 'partners', 
-    component: PartnersComponent,
+    //component: PartnersComponent,
     pathMatch: 'prefix',
     children: [
       {path: 'france', component: FrancepartnersComponent},
       {path: 'espagne', component: SpainpartnersComponent},
       {path: 'allemagne', component: GermanypartnersComponent},
 ]  },
+  { path: '', redirectTo: 'partners', pathMatch: 'full' },
   { path: '**', redirectTo: 'partners' }, //route qui n'existe pas pour éviter une erreur
 ];
 
