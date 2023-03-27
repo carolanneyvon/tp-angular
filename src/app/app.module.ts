@@ -6,6 +6,7 @@ import { TodosComponent } from './components/todos/todos.component';
 import { TodoDetailsComponent } from './components/todos/todo-details/todo-details.component';
 import { TodoFormComponent } from './components/todos/todo-form/todo-form.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { FooterComponent } from './components/footer/footer.component';
     TodoFormComponent,
     FooterComponent,
   ],
-  imports: [ BrowserModule ],
+  imports: [ BrowserModule,
+  FormsModule, 
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {}

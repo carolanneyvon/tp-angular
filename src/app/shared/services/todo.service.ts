@@ -7,27 +7,14 @@ import { Todo } from '../models/todo';
 })
 export class TodoService {
 
-  //nouvel object public (observable => fini par $)
-  public todos$ = new BehaviorSubject([
-    new Todo('Faire la vaisselle'),
-    new Todo('Faire le ménage'),
-    new Todo('Faire les courses'),
-    new Todo('Travailler les cours'),
-  ]);
+  public todos$ = new BehaviorSubject<Todo[]>([]);
 
-  //.next => contient les valeurs de l'observable todos$
-  //.value => récupére les valeurs manipuler par l'observable et les mets dans un tableau
-  //new => nouvelle tâche
-  constructor() {
-    setTimeout(() => {
-      this.todos$.next([
-        ...this.todos$.value,
-        new Todo("Démarrer le programme"),
-      ]);
-    }, 3000);
-
-    setTimeout(() => {
-      this.todos$.next([]);
-    }, 4000);
+  public create(todo: Todo) {
+    //console.log(todo);
+    this.todos$.next([
+      todo,
+      ...this.todos$.value
+    ])
   }
+
 }

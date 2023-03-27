@@ -1,1 +1,14 @@
-<p>todo-form works!</p>
+<form #formAddTodo="ngForm" (ngSumbit)="onSubmit(formAddTodo)">
+  <p>
+    <label for="todo">Tâche:</label>
+    <input required id="todo" type="text" name="text" ngModel>
+  </p>
+  
+  <p>
+    <label for="done">Tâche faite ?</label>
+    <input id="done" type="checkbox" name="done" ngModel>
+  </p>
+
+  <button type="submit" [disabled]="formAddTodo.invalid">Go!</button>
+</form>
+
