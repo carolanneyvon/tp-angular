@@ -17,22 +17,26 @@ export class TodoService {
   public findAll(){
     this._http.get<Todo[]>('http://localhost:3000/todos')
     .subscribe(todosFromApi => { //observable, il faut donc s'abonner, fonction qui récupère toutes les todos à la connexion
-      //console.log(todosFromApi)
-      this.todos$.next(todosFromApi)//met à jour le BehaviorSubject, typscritp donc bien typer l'object
-      // soit (<Todo[]>todosFromApi) = manière java
-      // soit (todosFromApi as Todo[])
-      // soit directement au niveau de la fonction get sur service http
+      this.todos$.next(todosFromApi)//met à jour le BehaviorSubject
     });
   }
 
-  // A FAIRE = mettre à jour l'observable donc fichier json avec un POST
+  // public create(todo: Todo) {
+  //   //console.log(todo);
+  //   this.todos$.next([
+  //     todo,
+  //     ...this.todos$.value
+  //   ])
+  // }
 
   public create(todo: Todo) {
-    //console.log(todo);
-    this.todos$.next([
-      todo,
-      ...this.todos$.value
-    ])
+    this._http.post<Todo>('http://localhost:3000/todos', todo) 
+    // à la place de todo => objet littéral avec les propriétés { text: todo.text, done: todo.done }
+    // test ok mais done enregistré en tant que chaine de caractère
+      .subscribe(newTodo => {
+        const currentTodos = this.todos$.getValue(); //observable renvoie la nouvelle tâches
+        this.todos$.next([...currentTodos, newTodo]); //ajout de la nouvelle tâche à la liste existante grâce au '...'
+      });
   }
 
 }
