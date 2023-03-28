@@ -2,7 +2,7 @@
   "todos": [
     {
       "text": "Faire la lessive",
-      "done": false,
+      "done": true,
       "id": 1
     },
     {
@@ -11,8 +11,8 @@
       "id": 2
     },
     {
-      "text": "dd",
-      "done": "",
+      "text": "Faire les courses",
+      "done": false,
       "id": 3
     },
     {

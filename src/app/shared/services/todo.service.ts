@@ -34,5 +34,12 @@ export class TodoService {
       });
   }
 
-
+  //PUT
+  public update(todo: Todo) {
+    this._http
+      .put<Todo>(`http://localhost:3000/todos/${todo.id}`, todo)
+      .subscribe(updated => {
+        const t = this.todos$.value.find(t => t.id == todo.id);
+      });
+  }
 }

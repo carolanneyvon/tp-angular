@@ -5,7 +5,7 @@
 <ul class="list-group">
   <li
     #liTag
-    (click)="todo.done = !todo.done"
+    (click)="toggleStateTodo(todo)"
     (mouseenter)="liTag.classList.add('focused')"
     (mouseout)="liTag.classList.remove('focused')"
     [class.done]="todo.done"
