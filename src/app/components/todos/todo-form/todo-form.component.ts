@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Todo } from 'src/app/shared/models/todo';
 import { TodoService } from 'src/app/shared/services/todo.service';
 
 @Component({
@@ -13,7 +14,10 @@ export class TodoFormComponent {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this._todoService.create(form.value);
+      const todo = new Todo();
+      todo.text = form.value.text;
+      todo.done = !!form.value.done;
+      this._todoService.create(todo);
       form.reset();
     }
   }

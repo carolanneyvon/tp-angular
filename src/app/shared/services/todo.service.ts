@@ -14,6 +14,7 @@ export class TodoService {
     this.findAll(); //récupère l'ensemble des tâches
   }
 
+  //GET
   public findAll(){
     this._http.get<Todo[]>('http://localhost:3000/todos')
     .subscribe(todosFromApi => { //observable, il faut donc s'abonner, fonction qui récupère toutes les todos à la connexion
@@ -21,22 +22,17 @@ export class TodoService {
     });
   }
 
-  // public create(todo: Todo) {
-  //   //console.log(todo);
-  //   this.todos$.next([
-  //     todo,
-  //     ...this.todos$.value
-  //   ])
-  // }
-
+  //POST
   public create(todo: Todo) {
-    this._http.post<Todo>('http://localhost:3000/todos', todo) 
-    // à la place de todo => objet littéral avec les propriétés { text: todo.text, done: todo.done }
-    // test ok mais done enregistré en tant que chaine de caractère
+    this._http
+      .post<Todo>('http://localhost:3000/todos', todo)
       .subscribe(newTodo => {
-        const currentTodos = this.todos$.getValue(); //observable renvoie la nouvelle tâches
-        this.todos$.next([...currentTodos, newTodo]); //ajout de la nouvelle tâche à la liste existante grâce au '...'
+        this.todos$.next([
+          newTodo,
+          ...this.todos$.value,
+        ]);
       });
   }
+
 
 }
